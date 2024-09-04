@@ -25,7 +25,9 @@ router.post('/add-author', async function (req, res) {
 
 router.get('/add-book', async (req, res) => {
   // Recuperar todos los autores de la coleccion Authors
-  const authors = {} // TODO: Iteración 2
+  const authors = await Author.find();
+  console.log("🚀 ~ router.get ~ authors:", authors)
+
   res.render('add-book', {
     authors
   })
