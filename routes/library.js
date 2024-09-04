@@ -2,6 +2,7 @@ var express = require('express');
 var router = express.Router();
 
 const Book = require('../models/book');
+const Author = require('../models/author')
 
 /* GET users listing. */
 router.get('/add-author', function (req, res, next) {
@@ -10,6 +11,15 @@ router.get('/add-author', function (req, res, next) {
 
 router.post('/add-author', async function (req, res) {
   // Iteración 1
+  const { firstName, familyName, dateBirth, dateDeath} = req.body;
+
+  await Author.create({
+    firstName, 
+    familyName, 
+    dateBirth, 
+    dateDeath
+  })
+
 })
 
 
