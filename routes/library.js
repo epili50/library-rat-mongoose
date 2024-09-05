@@ -53,7 +53,7 @@ router.post('/add-book', async (req, res) => {
 })
 
 router.get('/books', async (req, res) => {
-  const books = await Book.find(); // Iteración 4
+  const books = await Book.find().populate('author'); // Iteración 4
 
   console.log("Libros a enviar a la vista: ", books);
 
